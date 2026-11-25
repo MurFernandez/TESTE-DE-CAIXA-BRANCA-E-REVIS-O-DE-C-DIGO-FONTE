@@ -1,0 +1,55 @@
+﻿=================================================================
+EXECUÃ├O DE TESTES CAIXA-BRANCA ù CËDIGO ORIGINAL (LEGADO)
+=================================================================
+
+[CT-01] PASSOU - consultarQuantidade - Produto na 1¬ linha (Caminho C3 / break)
+   Esperado : 15
+   Observado: 15
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-02] PASSOU - consultarQuantidade - Produto na 2¬ linha (Caminho C4 / loop)
+   Esperado : 8
+   Observado: 8
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-03] PASSOU - consultarQuantidade - C¾digo inexistente (Caminho C2 / EOF)
+   Esperado : 0
+   Observado: 0
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-04] FALHOU (DEFEITO DO LEGADO) - consultarQuantidade - Arquivo ausente (Caminho C1 / catch IOException)
+   Esperado : Sinalizar erro de arquivo ausente (nÒo confundir falha de I/O com saldo 0)
+   Observado: Retornou 15 silenciosamente (IOException engolida no catch)
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-05] FALHOU (DEFEITO DO LEGADO) - consultarQuantidade - ParÔmetro codigo == null
+   Esperado : Lanþar IllegalArgumentException para c¾digo nulo
+   Observado: Aceitou null e retornou 0
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-06] FALHOU (DEFEITO DO LEGADO) - consultarQuantidade - Linha vazia / quantidade nÒo numÚrica
+   Esperado : Tratar linha vazia/corrompida graciosamente sem derrubar a aplicaþÒo
+   Observado: Lanþou exceþÒo nÒo tratada: NumberFormatException (For input string: "ABC")
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-07] FALHOU (DEFEITO DO LEGADO) - registrarSaida - SaÝda vßlida de 5 unidades (Caminho C2)
+   Esperado : Retornar true, gravar 'P01;5' em movimentacoes.txt e atualizar saldo para 10
+   Observado: Retornou true, mas tamanho de movimentacoes.txt = 0 bytes (buffer sem close) e saldo = 15
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-08] FALHOU (DEFEITO DO LEGADO) - registrarSaida - Valor limite quantidade == disponivel (15 == 15)
+   Esperado : Retornar true e zerar saldo disponÝvel (0)
+   Observado: Retornou true, mas saldo permaneceu 15 em estoque.csv
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-09] PASSOU - registrarSaida - Saldo insuficiente (16 > 15, Caminho C1)
+   Esperado : false
+   Observado: false
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+[CT-10] FALHOU (DEFEITO DO LEGADO) - registrarSaida - Quantidade negativa (-5 <= 15)
+   Esperado : Rejeitar quantidade <= 0 (retornar false ou lanþar exceþÒo)
+   Observado: Aceitou saÝda negativa e retornou true (ultimaMovimentacao='P01')
+
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo
+  [AVISO DE RECURSO PRESO] NÒo foi possÝvel remover arquivo: estoque.csv: O arquivo jß estß sendo usado por outro processo

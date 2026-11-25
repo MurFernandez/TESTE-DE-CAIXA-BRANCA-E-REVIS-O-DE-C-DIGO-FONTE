@@ -1,0 +1,35 @@
+﻿=================================================================
+EXECUÃ├O DE TESTES CAIXA-BRANCA ù CËDIGO REVISADO (CORRIGIDO)
+=================================================================
+
+[CT-R01] PASSOU - Consulta de produtos existentes (1¬ e 2¬ linhas)
+   Detalhe: P01=15, P02=8
+
+[CT-R02] PASSOU - Consulta de c¾digo inexistente retorna 0
+   Detalhe: P99=0
+
+[CT-R03] PASSOU - RejeiþÒo de c¾digo nulo ou em branco
+   Detalhe: rejeitouNull=true, rejeitouVazio=true
+
+[CT-R04] PASSOU - ResiliÛncia a linhas vazias ou malformadas no CSV
+   Detalhe: Retornou P01=20 sem lanþar exceþÒo nÒo tratada
+
+[CT-R05] PASSOU - Registro de saÝda persiste log (flush/close) e abate saldo no CSV
+   Detalhe: ok=true, saldoRestante=10, log='P01;5', ultimaMov='P01'
+
+[CT-R06] PASSOU - SaÝda no limite exato (quantidade == disponivel) zera estoque
+   Detalhe: ok=true, saldoRestante=0
+
+[CT-R07] PASSOU - Bloqueio quando quantidade > disponivel
+   Detalhe: ok=false, saldoRestante=15
+
+[CT-R08] PASSOU - Bloqueio de saÝda com quantidade zero ou negativa
+   Detalhe: rejeitouZero=true, rejeitouNegativo=true, saldoRestante=15
+
+[CT-R09] PASSOU - PropagaþÒo explÝcita de erro quando arquivo nÒo existe (sem catch vazio)
+   Detalhe: lancouErro=true
+
+
+=================================================================
+RESUMO REVISADO: 9 executados | 9 passaram | 0 falharam
+=================================================================
