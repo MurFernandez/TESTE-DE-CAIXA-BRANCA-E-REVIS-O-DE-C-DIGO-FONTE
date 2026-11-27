@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstoqueArquivo (revisado) — Documentação JavaDoc</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul>
+                <li class=""><a href="../index.html">Visão Geral</a></li>
+                <li class=""><span>Pacote</span></li>
+                <li class="active"><span>Classe</span></li>
+                <li class=""><a href="../allclasses-index.html">Todas as Classes</a></li>
+            </ul>
+            <div class="nav-title">Documentação API JavaDoc — Estoque &amp; Testes</div>
+        </nav>
+        <div class="sub-nav">
+            <div>Pacote: <a href="package-summary.html">revisado</a> &nbsp;|&nbsp; <a href="../index.html">Voltar à Visão Geral</a></div>
+            <div class="search-box">
+                <input type="text" id="filterInput" onkeyup="filterItems()" placeholder="Filtrar métodos ou classes...">
+            </div>
+        </div>
+    </header>
+    <main>
+        
+    <div class="header-block">
+        <div class="package-label">Pacote <a href="package-summary.html">revisado</a></div>
+        <h1 class="title">Classe EstoqueArquivo</h1>
+    </div>
+    <div class="inheritance">java.lang.Object<br>&nbsp;&nbsp;↳ <strong>revisado.EstoqueArquivo</strong></div>
+    <div class="class-signature">public class EstoqueArquivo</div>
+    <div class="description">Gerencia consultas e baixas de estoque persistidas em arquivos texto (CSV/TXT). Versão revisada com fechamento automático de recursos, validação de entradas, atualização consistente de saldo e tratamento explícito de falhas de I/O.</div>
+    
+        <section class="summary-section">
+            <h2>Resumo dos Construtores</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Modificador</th>
+                        <th>Construtor</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr>
+                <td class="col-modifier">public</td>
+                <td class="col-member"><a href="#ctor-0">EstoqueArquivo</a>()</td>
+                <td class="col-desc">Construtor padrão que utiliza os arquivos &quot;estoque.csv&quot; e &quot;movimentacoes.txt&quot; no diretório de execução atual.</td>
+            </tr>
+            <tr>
+                <td class="col-modifier">public</td>
+                <td class="col-member"><a href="#ctor-1">EstoqueArquivo</a>(Path arquivoEstoque, Path arquivoMovimentacoes)</td>
+                <td class="col-desc">Construtor parametrizado que permite injetar caminhos customizados (útil para testes isolados).</td>
+            </tr></tbody>
+            </table>
+        </section>
+    
+    <section class="summary-section">
+        <h2>Resumo dos Métodos</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Modificador e Tipo</th>
+                    <th>Método</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td class="col-modifier">public synchronized int</td>
+            <td class="col-member"><a href="#method-consultarQuantidade-0">consultarQuantidade</a>(String codigo)</td>
+            <td class="col-desc">Consulta a quantidade disponível de um produto pelo seu código.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">public synchronized boolean</td>
+            <td class="col-member"><a href="#method-registrarSaida-1">registrarSaida</a>(String codigo, int quantidade)</td>
+            <td class="col-desc">Registra a saída (baixa) de uma quantidade de produto, abatendo o saldo no CSV e gravando o histórico no arquivo de movimentações com flush/close garantidos.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">public synchronized String</td>
+            <td class="col-member"><a href="#method-getUltimaMovimentacao-2">getUltimaMovimentacao</a>()</td>
+            <td class="col-desc">Retorna o código do último produto que teve saída registrada com sucesso.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private String</td>
+            <td class="col-member"><a href="#method-validarCodigo-3">validarCodigo</a>(String codigo)</td>
+            <td class="col-desc">Valida e normaliza o código do produto removendo espaços nas extremidades.</td>
+        </tr></tbody>
+        </table>
+    </section>
+    
+        <section class="details-section">
+            <h2>Detalhes dos Construtores</h2>
+            
+            <div class="detail-card" id="ctor-0">
+                <h3>EstoqueArquivo</h3>
+                <div class="member-signature">public EstoqueArquivo()</div>
+                <div class="description">Construtor padrão que utiliza os arquivos &quot;estoque.csv&quot; e &quot;movimentacoes.txt&quot; no diretório de execução atual.</div>
+                
+            </div>
+            <div class="detail-card" id="ctor-1">
+                <h3>EstoqueArquivo</h3>
+                <div class="member-signature">public EstoqueArquivo(Path arquivoEstoque, Path arquivoMovimentacoes)</div>
+                <div class="description">Construtor parametrizado que permite injetar caminhos customizados (útil para testes isolados).</div>
+                <dl class="notes"><dt>Parâmetros:</dt><dd><code>arquivoEstoque</code> - caminho do arquivo CSV de saldos</dd><dd><code>arquivoMovimentacoes</code> - caminho do arquivo TXT de histórico de saídas</dd></dl>
+            </div>
+        </section>
+    
+    <section class="details-section">
+        <h2>Detalhes dos Métodos</h2>
+        
+        <div class="detail-card" id="method-consultarQuantidade-0">
+            <h3>consultarQuantidade</h3>
+            <div class="member-signature">public synchronized int consultarQuantidade(String codigo)</div>
+            <div class="description">Consulta a quantidade disponível de um produto pelo seu código.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>codigo</code> - identificador do produto (não pode ser nulo ou em branco)</dd><dt>Retorno:</dt><dd>quantidade disponível em estoque, ou 0 caso o código não seja encontrado</dd><dt>Exceções Lançadas:</dt><dd><code>IllegalArgumentException</code> - se o código for nulo ou vazio</dd><dd><code>UncheckedIOException</code> - se o arquivo de estoque não existir ou falhar na leitura</dd></dl>
+        </div>
+        <div class="detail-card" id="method-registrarSaida-1">
+            <h3>registrarSaida</h3>
+            <div class="member-signature">public synchronized boolean registrarSaida(String codigo, int quantidade)</div>
+            <div class="description">Registra a saída (baixa) de uma quantidade de produto, abatendo o saldo no CSV e gravando o histórico no arquivo de movimentações com flush/close garantidos.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>codigo</code> - identificador do produto (não pode ser nulo ou em branco)</dd><dd><code>quantidade</code> - quantidade a retirar (deve ser estritamente maior que zero)</dd><dt>Retorno:</dt><dd><code>true</code> se houver saldo suficiente e a baixa for persistida; <code>false</code> se o saldo for insuficiente</dd><dt>Exceções Lançadas:</dt><dd><code>IllegalArgumentException</code> - se o código for inválido ou se <code>quantidade &lt;= 0</code></dd><dd><code>UncheckedIOException</code> - se ocorrer falha de leitura ou escrita nos arquivos</dd></dl>
+        </div>
+        <div class="detail-card" id="method-getUltimaMovimentacao-2">
+            <h3>getUltimaMovimentacao</h3>
+            <div class="member-signature">public synchronized String getUltimaMovimentacao()</div>
+            <div class="description">Retorna o código do último produto que teve saída registrada com sucesso.</div>
+            <dl class="notes"><dt>Retorno:</dt><dd>código do último produto movimentado, ou string vazia se nenhuma saída ocorreu</dd></dl>
+        </div>
+        <div class="detail-card" id="method-validarCodigo-3">
+            <h3>validarCodigo</h3>
+            <div class="member-signature">private String validarCodigo(String codigo)</div>
+            <div class="description">Valida e normaliza o código do produto removendo espaços nas extremidades.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>codigo</code> - código bruto informado na chamada</dd><dt>Retorno:</dt><dd>código validado e sem espaços extras</dd><dt>Exceções Lançadas:</dt><dd><code>IllegalArgumentException</code> - se o código for nulo ou composto apenas por espaços</dd></dl>
+        </div>
+    </section>
+    
+    </main>
+    <footer>
+        Documentação HTML gerada no padrão oficial JavaDoc (UTF-8) para os pacotes <code>original</code>, <code>revisado</code> e <code>testes</code>.
+    </footer>
+    <script>
+        function filterItems() {
+            const query = document.getElementById('filterInput').value.toLowerCase();
+            document.querySelectorAll('table.summary-table tbody tr, .detail-card').forEach(el => {
+                el.style.display = el.textContent.toLowerCase().includes(query) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
