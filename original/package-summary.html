@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote original — Documentação JavaDoc</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul>
+                <li class=""><a href="../index.html">Visão Geral</a></li>
+                <li class="active"><span>Pacote</span></li>
+                <li class=""><span>Classe</span></li>
+                <li class=""><a href="../allclasses-index.html">Todas as Classes</a></li>
+            </ul>
+            <div class="nav-title">Documentação API JavaDoc — Estoque &amp; Testes</div>
+        </nav>
+        <div class="sub-nav">
+            <div><a href="../index.html">Visão Geral</a> &nbsp;|&nbsp; <a href="../allclasses-index.html">Todas as Classes</a></div>
+            <div class="search-box">
+                <input type="text" id="filterInput" onkeyup="filterItems()" placeholder="Filtrar métodos ou classes...">
+            </div>
+        </div>
+    </header>
+    <main>
+        
+    <div class="header-block">
+        <h1 class="title">Pacote original</h1>
+    </div>
+    <div class="description">Código-base legado intencionalmente problemático para revisão estática, análise de grafo de fluxo de controle (CFG) e testes de caixa-branca.</div>
+    <section class="summary-section">
+        <h2>Classes do Pacote</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Classe</th>
+                    <th colspan="2">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td class="col-member"><a href="EstoqueArquivo.html">EstoqueArquivo</a></td>
+            <td colspan="2">Código-base intencionalmente problemático para revisão estática e estrutural.</td>
+        </tr></tbody>
+        </table>
+    </section>
+    
+    </main>
+    <footer>
+        Documentação HTML gerada no padrão oficial JavaDoc (UTF-8) para os pacotes <code>original</code>, <code>revisado</code> e <code>testes</code>.
+    </footer>
+    <script>
+        function filterItems() {
+            const query = document.getElementById('filterInput').value.toLowerCase();
+            document.querySelectorAll('table.summary-table tbody tr, .detail-card').forEach(el => {
+                el.style.display = el.textContent.toLowerCase().includes(query) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
