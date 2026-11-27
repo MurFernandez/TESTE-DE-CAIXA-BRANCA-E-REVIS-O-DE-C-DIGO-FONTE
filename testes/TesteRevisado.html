@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TesteRevisado (testes) — Documentação JavaDoc</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul>
+                <li class=""><a href="../index.html">Visão Geral</a></li>
+                <li class=""><span>Pacote</span></li>
+                <li class="active"><span>Classe</span></li>
+                <li class=""><a href="../allclasses-index.html">Todas as Classes</a></li>
+            </ul>
+            <div class="nav-title">Documentação API JavaDoc — Estoque &amp; Testes</div>
+        </nav>
+        <div class="sub-nav">
+            <div>Pacote: <a href="package-summary.html">testes</a> &nbsp;|&nbsp; <a href="../index.html">Voltar à Visão Geral</a></div>
+            <div class="search-box">
+                <input type="text" id="filterInput" onkeyup="filterItems()" placeholder="Filtrar métodos ou classes...">
+            </div>
+        </div>
+    </header>
+    <main>
+        
+    <div class="header-block">
+        <div class="package-label">Pacote <a href="package-summary.html">testes</a></div>
+        <h1 class="title">Classe TesteRevisado</h1>
+    </div>
+    <div class="inheritance">java.lang.Object<br>&nbsp;&nbsp;↳ <strong>testes.TesteRevisado</strong></div>
+    <div class="class-signature">public class TesteRevisado</div>
+    <div class="description">Suíte repetível de testes de caixa-branca para <code>revisado/EstoqueArquivo.java</code>. Isola o ambiente recriando e removendo <code>estoque.csv</code> e <code>movimentacoes.txt</code> a cada caso de teste.</div>
+    
+    
+    <section class="summary-section">
+        <h2>Resumo dos Métodos</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Modificador e Tipo</th>
+                    <th>Método</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td class="col-modifier">public static void</td>
+            <td class="col-member"><a href="#method-main-0">main</a>(String[] args)</td>
+            <td class="col-desc">Ponto de entrada da suíte de testes que executa todos os casos de teste da versão revisada (CT-R01 a CT-R09), exibe o resumo no console e encerra com código de erro caso algum teste falhe.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-prepararEstoque-1">prepararEstoque</a>(String conteudo)</td>
+            <td class="col-desc">Limpa os arquivos temporários anteriores e cria um novo arquivo <code>estoque.csv</code> com o conteúdo informado.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-limparArquivos-2">limparArquivos</a>()</td>
+            <td class="col-desc">Exclui os arquivos <code>estoque.csv</code> e <code>movimentacoes.txt</code> caso existam no diretório de execução.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-registrar-3">registrar</a>(String id, String descricao, boolean passou, String detalhe)</td>
+            <td class="col-desc">Contabiliza a execução de um caso de teste e imprime seu resultado detalhado no console.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarConsultaFluxoNormal-4">testarConsultaFluxoNormal</a>()</td>
+            <td class="col-desc">Executa o CT-R01: valida a consulta de quantidade para produtos existentes na primeira e segunda linhas do CSV.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarConsultaCodigoInexistente-5">testarConsultaCodigoInexistente</a>()</td>
+            <td class="col-desc">Executa o CT-R02: verifica se a consulta por um código inexistente retorna <code>0</code> sem lançar exceção.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarConsultaCodigoInvalido-6">testarConsultaCodigoInvalido</a>()</td>
+            <td class="col-desc">Executa o CT-R03: valida o lançamento de <code>IllegalArgumentException</code> ao consultar códigos nulos ou em branco.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarConsultaLinhaMalformada-7">testarConsultaLinhaMalformada</a>()</td>
+            <td class="col-desc">Executa o CT-R04: verifica se linhas vazias ou sem delimitador válido são ignoradas sem interromper a leitura do CSV.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarSaidaFluxoNormalEAbatimentoSaldo-8">testarSaidaFluxoNormalEAbatimentoSaldo</a>()</td>
+            <td class="col-desc">Executa o CT-R05: valida o fluxo normal de saída, garantindo a gravação no histórico, o abatimento do saldo no CSV e a atualização da última movimentação.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarSaidaLimiteExato-9">testarSaidaLimiteExato</a>()</td>
+            <td class="col-desc">Executa o CT-R06: valida o valor limite em que a quantidade solicitada é exatamente igual ao saldo disponível.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarSaidaSaldoInsuficiente-10">testarSaidaSaldoInsuficiente</a>()</td>
+            <td class="col-desc">Executa o CT-R07: verifica o bloqueio da operação quando a quantidade solicitada supera o saldo disponível.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarSaidaQuantidadeZeroOuNegativa-11">testarSaidaQuantidadeZeroOuNegativa</a>()</td>
+            <td class="col-desc">Executa o CT-R08: verifica o lançamento de <code>IllegalArgumentException</code> para saídas com quantidade zero ou negativa.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-testarArquivoInexistente-12">testarArquivoInexistente</a>()</td>
+            <td class="col-desc">Executa o CT-R09: valida a propagação explícita de exceção quando <code>estoque.csv</code> não existe.</td>
+        </tr></tbody>
+        </table>
+    </section>
+    
+    
+    <section class="details-section">
+        <h2>Detalhes dos Métodos</h2>
+        
+        <div class="detail-card" id="method-main-0">
+            <h3>main</h3>
+            <div class="member-signature">public static void main(String[] args) throws IOException</div>
+            <div class="description">Ponto de entrada da suíte de testes que executa todos os casos de teste da versão revisada (CT-R01 a CT-R09), exibe o resumo no console e encerra com código de erro caso algum teste falhe.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>args</code> - argumentos de linha de comando (não utilizados)</dd><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se ocorrer falha de entrada/saída ao preparar ou limpar os arquivos de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-prepararEstoque-1">
+            <h3>prepararEstoque</h3>
+            <div class="member-signature">private static void prepararEstoque(String conteudo) throws IOException</div>
+            <div class="description">Limpa os arquivos temporários anteriores e cria um novo arquivo <code>estoque.csv</code> com o conteúdo informado.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>conteudo</code> - texto a ser gravado em <code>estoque.csv</code>, ou <code>null</code> para manter o arquivo ausente</dd><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se ocorrer erro ao remover ou gravar os arquivos de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-limparArquivos-2">
+            <h3>limparArquivos</h3>
+            <div class="member-signature">private static void limparArquivos() throws IOException</div>
+            <div class="description">Exclui os arquivos <code>estoque.csv</code> e <code>movimentacoes.txt</code> caso existam no diretório de execução.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se ocorrer falha de permissão ou bloqueio ao excluir os arquivos</dd></dl>
+        </div>
+        <div class="detail-card" id="method-registrar-3">
+            <h3>registrar</h3>
+            <div class="member-signature">private static void registrar(String id, String descricao, boolean passou, String detalhe)</div>
+            <div class="description">Contabiliza a execução de um caso de teste e imprime seu resultado detalhado no console.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>id</code> - identificador único do caso de teste (ex.: &quot;CT-R01&quot;)</dd><dd><code>descricao</code> - resumo do cenário validado pelo caso de teste</dd><dd><code>passou</code> - indica se todas as asserções do caso de teste foram satisfeitas</dd><dd><code>detalhe</code> - valores observados durante a execução do teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarConsultaFluxoNormal-4">
+            <h3>testarConsultaFluxoNormal</h3>
+            <div class="member-signature">private static void testarConsultaFluxoNormal() throws IOException</div>
+            <div class="description">Executa o CT-R01: valida a consulta de quantidade para produtos existentes na primeira e segunda linhas do CSV.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarConsultaCodigoInexistente-5">
+            <h3>testarConsultaCodigoInexistente</h3>
+            <div class="member-signature">private static void testarConsultaCodigoInexistente() throws IOException</div>
+            <div class="description">Executa o CT-R02: verifica se a consulta por um código inexistente retorna <code>0</code> sem lançar exceção.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarConsultaCodigoInvalido-6">
+            <h3>testarConsultaCodigoInvalido</h3>
+            <div class="member-signature">private static void testarConsultaCodigoInvalido() throws IOException</div>
+            <div class="description">Executa o CT-R03: valida o lançamento de <code>IllegalArgumentException</code> ao consultar códigos nulos ou em branco.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarConsultaLinhaMalformada-7">
+            <h3>testarConsultaLinhaMalformada</h3>
+            <div class="member-signature">private static void testarConsultaLinhaMalformada() throws IOException</div>
+            <div class="description">Executa o CT-R04: verifica se linhas vazias ou sem delimitador válido são ignoradas sem interromper a leitura do CSV.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarSaidaFluxoNormalEAbatimentoSaldo-8">
+            <h3>testarSaidaFluxoNormalEAbatimentoSaldo</h3>
+            <div class="member-signature">private static void testarSaidaFluxoNormalEAbatimentoSaldo() throws IOException</div>
+            <div class="description">Executa o CT-R05: valida o fluxo normal de saída, garantindo a gravação no histórico, o abatimento do saldo no CSV e a atualização da última movimentação.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a leitura ou escrita nos arquivos de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarSaidaLimiteExato-9">
+            <h3>testarSaidaLimiteExato</h3>
+            <div class="member-signature">private static void testarSaidaLimiteExato() throws IOException</div>
+            <div class="description">Executa o CT-R06: valida o valor limite em que a quantidade solicitada é exatamente igual ao saldo disponível.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarSaidaSaldoInsuficiente-10">
+            <h3>testarSaidaSaldoInsuficiente</h3>
+            <div class="member-signature">private static void testarSaidaSaldoInsuficiente() throws IOException</div>
+            <div class="description">Executa o CT-R07: verifica o bloqueio da operação quando a quantidade solicitada supera o saldo disponível.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarSaidaQuantidadeZeroOuNegativa-11">
+            <h3>testarSaidaQuantidadeZeroOuNegativa</h3>
+            <div class="member-signature">private static void testarSaidaQuantidadeZeroOuNegativa() throws IOException</div>
+            <div class="description">Executa o CT-R08: verifica o lançamento de <code>IllegalArgumentException</code> para saídas com quantidade zero ou negativa.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo <code>estoque.csv</code></dd></dl>
+        </div>
+        <div class="detail-card" id="method-testarArquivoInexistente-12">
+            <h3>testarArquivoInexistente</h3>
+            <div class="member-signature">private static void testarArquivoInexistente() throws IOException</div>
+            <div class="description">Executa o CT-R09: valida a propagação explícita de exceção quando <code>estoque.csv</code> não existe.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a limpeza do ambiente de teste</dd></dl>
+        </div>
+    </section>
+    
+    </main>
+    <footer>
+        Documentação HTML gerada no padrão oficial JavaDoc (UTF-8) para os pacotes <code>original</code>, <code>revisado</code> e <code>testes</code>.
+    </footer>
+    <script>
+        function filterItems() {
+            const query = document.getElementById('filterInput').value.toLowerCase();
+            document.querySelectorAll('table.summary-table tbody tr, .detail-card').forEach(el => {
+                el.style.display = el.textContent.toLowerCase().includes(query) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

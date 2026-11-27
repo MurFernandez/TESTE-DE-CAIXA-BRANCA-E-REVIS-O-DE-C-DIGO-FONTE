@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TesteOriginal (testes) — Documentação JavaDoc</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <ul>
+                <li class=""><a href="../index.html">Visão Geral</a></li>
+                <li class=""><span>Pacote</span></li>
+                <li class="active"><span>Classe</span></li>
+                <li class=""><a href="../allclasses-index.html">Todas as Classes</a></li>
+            </ul>
+            <div class="nav-title">Documentação API JavaDoc — Estoque &amp; Testes</div>
+        </nav>
+        <div class="sub-nav">
+            <div>Pacote: <a href="package-summary.html">testes</a> &nbsp;|&nbsp; <a href="../index.html">Voltar à Visão Geral</a></div>
+            <div class="search-box">
+                <input type="text" id="filterInput" onkeyup="filterItems()" placeholder="Filtrar métodos ou classes...">
+            </div>
+        </div>
+    </header>
+    <main>
+        
+    <div class="header-block">
+        <div class="package-label">Pacote <a href="package-summary.html">testes</a></div>
+        <h1 class="title">Classe TesteOriginal</h1>
+    </div>
+    <div class="inheritance">java.lang.Object<br>&nbsp;&nbsp;↳ <strong>testes.TesteOriginal</strong></div>
+    <div class="class-signature">public class TesteOriginal</div>
+    <div class="description">Suíte repetível de testes de caixa-branca para <code>original/EstoqueArquivo.java</code>. Executa os caminhos básicos do grafo de fluxo de controle (CFG) e demonstra objetivamente as falhas do legado.</div>
+    
+    
+    <section class="summary-section">
+        <h2>Resumo dos Métodos</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Modificador e Tipo</th>
+                    <th>Método</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td class="col-modifier">public static void</td>
+            <td class="col-member"><a href="#method-main-0">main</a>(String[] args)</td>
+            <td class="col-desc">Ponto de entrada da suíte de testes que executa todos os casos de teste (CT-01 a CT-11) e imprime o resumo consolidado no console.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-prepararAmbiente-1">prepararAmbiente</a>(String conteudoEstoque)</td>
+            <td class="col-desc">Prepara os arquivos de ambiente antes da execução de cada caso de teste.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-limparArquivos-2">limparArquivos</a>()</td>
+            <td class="col-desc">Remove os arquivos temporários de estoque e movimentações utilizados durante os testes.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-registrar-3">registrar</a>(String id, String descricao, boolean passou, String esperado, String observado)</td>
+            <td class="col-desc">Contabiliza e exibe o resultado formatado de um caso de teste no console.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT01-4">executarCT01</a>()</td>
+            <td class="col-desc">Executa o CT-01: consulta de produto localizado na primeira linha do CSV (caminho C3 / break).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT02-5">executarCT02</a>()</td>
+            <td class="col-desc">Executa o CT-02: consulta de produto localizado após iteração na segunda linha do CSV (caminho C4 / loop).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT03-6">executarCT03</a>()</td>
+            <td class="col-desc">Executa o CT-03: consulta de código de produto inexistente até o fim do arquivo (caminho C2 / EOF).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT04-7">executarCT04</a>()</td>
+            <td class="col-desc">Executa o CT-04: consulta com arquivo <code>estoque.csv</code> ausente para evidenciar exceção engolida (caminho C1).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT05-8">executarCT05</a>()</td>
+            <td class="col-desc">Executa o CT-05: consulta passando parâmetro <code>codigo</code> igual a <code>null</code>.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT06-9">executarCT06</a>()</td>
+            <td class="col-desc">Executa o CT-06: consulta em arquivo contendo linha vazia e quantidade não numérica.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT07-10">executarCT07</a>()</td>
+            <td class="col-desc">Executa o CT-07: registro de saída válida verificando ausência de <code>close()</code> e falta de abate no saldo (caminho C2).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT08-11">executarCT08</a>()</td>
+            <td class="col-desc">Executa o CT-08: teste de valor limite onde a quantidade solicitada é igual ao saldo disponível.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT09-12">executarCT09</a>()</td>
+            <td class="col-desc">Executa o CT-09: tentativa de saída com quantidade superior ao saldo disponível (caminho C1).</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT10-13">executarCT10</a>()</td>
+            <td class="col-desc">Executa o CT-10: tentativa de saída com valor negativo para evidenciar ausência de validação de entrada.</td>
+        </tr>
+        <tr>
+            <td class="col-modifier">private static void</td>
+            <td class="col-member"><a href="#method-executarCT11-14">executarCT11</a>()</td>
+            <td class="col-desc">Executa o CT-11: simulação de falha de escrita criando um diretório no lugar de <code>movimentacoes.txt</code> (caminho C3).</td>
+        </tr></tbody>
+        </table>
+    </section>
+    
+    
+    <section class="details-section">
+        <h2>Detalhes dos Métodos</h2>
+        
+        <div class="detail-card" id="method-main-0">
+            <h3>main</h3>
+            <div class="member-signature">public static void main(String[] args) throws IOException</div>
+            <div class="description">Ponto de entrada da suíte de testes que executa todos os casos de teste (CT-01 a CT-11) e imprime o resumo consolidado no console.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>args</code> - argumentos de linha de comando (não utilizados)</dd><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se ocorrer falha crítica ao manipular os arquivos temporários de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-prepararAmbiente-1">
+            <h3>prepararAmbiente</h3>
+            <div class="member-signature">private static void prepararAmbiente(String conteudoEstoque) throws IOException</div>
+            <div class="description">Prepara os arquivos de ambiente antes da execução de cada caso de teste.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>conteudoEstoque</code> - conteúdo inicial a ser gravado em <code>estoque.csv</code>, ou <code>null</code> para simular arquivo ausente</dd><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se ocorrer erro ao criar ou escrever no arquivo de estoque</dd></dl>
+        </div>
+        <div class="detail-card" id="method-limparArquivos-2">
+            <h3>limparArquivos</h3>
+            <div class="member-signature">private static void limparArquivos()</div>
+            <div class="description">Remove os arquivos temporários de estoque e movimentações utilizados durante os testes.</div>
+            
+        </div>
+        <div class="detail-card" id="method-registrar-3">
+            <h3>registrar</h3>
+            <div class="member-signature">private static void registrar(String id, String descricao, boolean passou, String esperado, String observado)</div>
+            <div class="description">Contabiliza e exibe o resultado formatado de um caso de teste no console.</div>
+            <dl class="notes"><dt>Parâmetros:</dt><dd><code>id</code> - identificador único do caso de teste (ex.: &quot;CT-01&quot;)</dd><dd><code>descricao</code> - descrição do cenário e caminho do CFG avaliado</dd><dd><code>passou</code> - indica se o comportamento observado corresponde ao esperado</dd><dd><code>esperado</code> - descrição do resultado esperado</dd><dd><code>observado</code> - descrição do resultado obtido na execução</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT01-4">
+            <h3>executarCT01</h3>
+            <div class="member-signature">private static void executarCT01() throws IOException</div>
+            <div class="description">Executa o CT-01: consulta de produto localizado na primeira linha do CSV (caminho C3 / break).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT02-5">
+            <h3>executarCT02</h3>
+            <div class="member-signature">private static void executarCT02() throws IOException</div>
+            <div class="description">Executa o CT-02: consulta de produto localizado após iteração na segunda linha do CSV (caminho C4 / loop).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT03-6">
+            <h3>executarCT03</h3>
+            <div class="member-signature">private static void executarCT03() throws IOException</div>
+            <div class="description">Executa o CT-03: consulta de código de produto inexistente até o fim do arquivo (caminho C2 / EOF).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT04-7">
+            <h3>executarCT04</h3>
+            <div class="member-signature">private static void executarCT04() throws IOException</div>
+            <div class="description">Executa o CT-04: consulta com arquivo <code>estoque.csv</code> ausente para evidenciar exceção engolida (caminho C1).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a limpeza do ambiente de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT05-8">
+            <h3>executarCT05</h3>
+            <div class="member-signature">private static void executarCT05() throws IOException</div>
+            <div class="description">Executa o CT-05: consulta passando parâmetro <code>codigo</code> igual a <code>null</code>.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT06-9">
+            <h3>executarCT06</h3>
+            <div class="member-signature">private static void executarCT06() throws IOException</div>
+            <div class="description">Executa o CT-06: consulta em arquivo contendo linha vazia e quantidade não numérica.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT07-10">
+            <h3>executarCT07</h3>
+            <div class="member-signature">private static void executarCT07() throws IOException</div>
+            <div class="description">Executa o CT-07: registro de saída válida verificando ausência de <code>close()</code> e falta de abate no saldo (caminho C2).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a manipulação dos arquivos de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT08-11">
+            <h3>executarCT08</h3>
+            <div class="member-signature">private static void executarCT08() throws IOException</div>
+            <div class="description">Executa o CT-08: teste de valor limite onde a quantidade solicitada é igual ao saldo disponível.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT09-12">
+            <h3>executarCT09</h3>
+            <div class="member-signature">private static void executarCT09() throws IOException</div>
+            <div class="description">Executa o CT-09: tentativa de saída com quantidade superior ao saldo disponível (caminho C1).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT10-13">
+            <h3>executarCT10</h3>
+            <div class="member-signature">private static void executarCT10() throws IOException</div>
+            <div class="description">Executa o CT-10: tentativa de saída com valor negativo para evidenciar ausência de validação de entrada.</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a preparação do arquivo de teste</dd></dl>
+        </div>
+        <div class="detail-card" id="method-executarCT11-14">
+            <h3>executarCT11</h3>
+            <div class="member-signature">private static void executarCT11() throws IOException</div>
+            <div class="description">Executa o CT-11: simulação de falha de escrita criando um diretório no lugar de <code>movimentacoes.txt</code> (caminho C3).</div>
+            <dl class="notes"><dt>Exceções Lançadas:</dt><dd><code>IOException</code> - se falhar a criação do cenário de erro no sistema de arquivos</dd></dl>
+        </div>
+    </section>
+    
+    </main>
+    <footer>
+        Documentação HTML gerada no padrão oficial JavaDoc (UTF-8) para os pacotes <code>original</code>, <code>revisado</code> e <code>testes</code>.
+    </footer>
+    <script>
+        function filterItems() {
+            const query = document.getElementById('filterInput').value.toLowerCase();
+            document.querySelectorAll('table.summary-table tbody tr, .detail-card').forEach(el => {
+                el.style.display = el.textContent.toLowerCase().includes(query) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
